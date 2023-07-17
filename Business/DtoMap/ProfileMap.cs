@@ -15,6 +15,8 @@ namespace Business.DtoMap
         {
             CreateMap<Customer, CustomerRequest>(MemberList.None);
             CreateMap<CustomerRequest, Customer>(MemberList.None);
+            CreateMap<TransactionRequest, Transaction>(MemberList.None);
+            CreateMap<Transaction, TransactionRequest>(MemberList.None);
         }
     }
 }

@@ -27,10 +27,11 @@ namespace Business.Dto
         public int CustomerId { get; set; }
         public int MerchantId { get; set; }
         public int MemberId { get; set; }
-        public string Hash { get; set; }
+        public string? Hash { get; set; }
         public string UserCode { get; set; }
         public string OrderId { get; set; }
         public string CardPan { get; set; }
+        public string CardAlias { get; set; }
         public string CVV { get; set; }
     }
 }

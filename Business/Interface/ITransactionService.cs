@@ -9,6 +9,6 @@ namespace Business.Interface
 {
     public interface ITransactionService
     {
-        void AddTransaction();//PaymentRequest request);
+        TransactionResponse AddTransaction(TransactionRequest request);
     }
 }

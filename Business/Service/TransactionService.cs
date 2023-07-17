@@ -23,10 +23,10 @@ namespace Business.Service
 
         }
 
-        public void AddTransaction()
+        public TransactionResponse AddTransaction(TransactionRequest request)
         {
             var paymentService = new PaymentService();
-            var sonuc = paymentService.Post();
+            return paymentService.Post(request).Result;
         }
     }
 }

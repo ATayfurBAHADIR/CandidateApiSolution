@@ -12,11 +12,11 @@ namespace Business.Utility
     {
         public string PaymentHash(PaymentRequest request)
         {
-            var hashString = $"{request.ApiKey}{request.HashPassword}{request.UserCode}{request.Rnd}{request.TxnType}{request.TotalAmount}{request.CustomerId}{request.OrderId}{request.OkUrl}{request.FailUrl}";
-            var s512 = SHA512.Create(); 
-            var byteConverter = new UnicodeEncoding(); 
-            var bytes = s512.ComputeHash(byteConverter.GetBytes(hashString)); 
-            var hash = BitConverter.ToString(bytes).Replace("-", ""); 
+            var hashString = $"{request.ApiKey}{request.UserCode}{request.Rnd}{request.TxnType}{request.TotalAmount}{request.CustomerId}{request.OrderId}";
+            System.Security.Cryptography.SHA512 s512 = System.Security.Cryptography.SHA512.Create();
+            System.Text.UnicodeEncoding ByteConverter = new System.Text.UnicodeEncoding();
+            byte[] bytes = s512.ComputeHash(ByteConverter.GetBytes(hashString));
+            var hash = System.BitConverter.ToString(bytes).Replace("-", "");
             return hash;
         }
     }

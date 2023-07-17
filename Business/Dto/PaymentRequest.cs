@@ -17,7 +17,5 @@ namespace Business.Dto
         public string Rnd { get; set; }
         public string TxnType { get; set; }
         public string TotalAmount { get; set; }
-        public string OkUrl { get; set; }
-        public string FailUrl { get; set; }
     }
 }

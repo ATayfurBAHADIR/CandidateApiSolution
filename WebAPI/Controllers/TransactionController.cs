@@ -17,10 +17,10 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("AddTransaction")]
-        public ActionResult AddTransaction()//PaymentRequest request)
+        public ActionResult AddTransaction(TransactionRequest request)
         {
-            _transactionService.AddTransaction();
-            return Ok();
+            var result = _transactionService.AddTransaction(request);
+            return Ok(result);
         }
     }
 }
