@@ -2,6 +2,7 @@
 using Business.ConnectedService;
 using Business.Dto;
 using Business.Interface;
+using Data.Entity;
 using Data.Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,15 @@ namespace Business.Service
         public TransactionResponse AddTransaction(TransactionRequest request)
         {
             var paymentService = new PaymentService();
-            return paymentService.Post(request).Result;
+            Transaction transaction = _mapper.Map<Transaction>(request);
+            _unitOfWork._transaction.Add(transaction);
+            _unitOfWork.Save();
+            var response = paymentService.Post(request).Result;
+            transaction.ResponseCode = response.Result.ResponseCode;
+            transaction.ResponseMessage = response.Result.ResponseMessage;
+            _unitOfWork._transaction.Update(transaction);
+            _unitOfWork.Save();
+            return response;
         }
     }
 }

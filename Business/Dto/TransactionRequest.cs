@@ -9,6 +9,9 @@ namespace Business.Dto
 {
     public class TransactionRequest
     {
+        public int CustomerId { get; set; }
+        public int MerchantId { get; set; }
+        public int MemberId { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
         public string Lang { get; set; }
@@ -24,9 +27,6 @@ namespace Business.Dto
         public string InstallmentCount { get; set; }
         public string TxnType { get; set; }
         public string Rnd { get; set; }
-        public int CustomerId { get; set; }
-        public int MerchantId { get; set; }
-        public int MemberId { get; set; }
         public string? Hash { get; set; }
         public string UserCode { get; set; }
         public string OrderId { get; set; }

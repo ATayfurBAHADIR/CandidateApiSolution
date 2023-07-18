@@ -9,6 +9,7 @@ namespace Data.Repository.Interface
     public interface IUnitOfWork : IDisposable
     {
         ICustomerRepository _customer { get; }
+        ITransactionRepository _transaction { get; }
         int Save();
     }
 }
